@@ -5,8 +5,6 @@
 
 import pytest
 
-
-from moodlesg import moodlesg
 import moodlesg.math.classes as classes
 
 
@@ -15,10 +13,12 @@ def test_MoodleVar():
     a = classes.MoodleVar('a', '[[', ']]')
     assert str(a) == '[[a]]'
 
+
 def test_GradeVar():
     """ Test string format of GradeVar."""
     a = classes.GradeVar('a')
     assert str(a) == '[[a]]'
+
 
 def test_AnsVar():
     """Test string format of AnsVar."""
