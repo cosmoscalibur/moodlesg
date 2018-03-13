@@ -7,19 +7,20 @@ import pytest
 
 
 from moodlesg import moodlesg
+import moodlesg.math.classes as classes
 
 
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
+def test_MoodleVar():
+    """Test string format of MoodleVar."""
+    a = classes.MoodleVar('a', '[[', ']]')
+    assert str(a) == '[[a]]'
 
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
+def test_GradeVar():
+    """ Test string format of GradeVar."""
+    a = classes.GradeVar('a')
+    assert str(a) == '[[a]]'
 
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+def test_AnsVar():
+    """Test string format of AnsVar."""
+    a = classes.AnsVar('a')
+    assert str(a) == '\{a\}'
