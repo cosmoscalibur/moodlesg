@@ -13,7 +13,9 @@ Moodle String Generator
         :target: https://moodlesg.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-
+.. image:: https://pyup.io/repos/github/cosmoscalibur/moodlesg/shield.svg
+     :target: https://pyup.io/repos/github/cosmoscalibur/moodlesg/
+     :alt: Updates
 
 
 Python package to generate common strings used in moodle for users (not admin level) and manage exported files from moodle and generate files for import.
