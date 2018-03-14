@@ -82,9 +82,7 @@ class GradeVar(MoodleVar):
         """
         Constructor of :class:`GradeVar`.
         """
-        self.root = varname
-        self.ldelim = "[["
-        self.rdelim = "]]"
+        super().__init__(varname, "[[", "]]")
 
 
 class AnsVar(MoodleVar):
@@ -95,6 +93,4 @@ class AnsVar(MoodleVar):
     .. seealso:: :class:`MoodleVar`, :class:`GradeVar`.
     """
     def __init__(self, varname):
-        self.root = varname
-        self.ldelim = "\{"
-        self.rdelim = "\}"
+        super().__init__(varname, "\{", "\}")
