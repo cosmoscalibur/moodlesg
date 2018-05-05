@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Module :code:`classes` contains basic classes required for building
+Module :code:`_base` contains definitions required for building
 moodle mathematical expressions.
-
-Created on Tue Mar 13 09:01:57 2018
-
-@author: cosmoscalibur
 """
 
 
 class Expression():
     """
     Implement a generic mathematical expression in moodle format.
+
+    :param expression: Math moodle expression.
+    :type expression: str
     """
 
     def __init__(self, expression):
@@ -46,10 +45,10 @@ class Expression():
 
     def __pow__(self, expression):
         return Expression('({} ^ {})'.format(self.root, expression.root))
-    
+
     def __neg__(self):
         return Expression('-{}'.format(self.root))
-    
+
     def __abs__(self):
         return Expression('abs{}'.format(self.root))
 
@@ -66,20 +65,20 @@ def grade_var(id_activity):
     :param id_activity: Moodle ID of the activity.
     :type id_activity: str
     :return: Moodle ID ready for grade calculation.
-    :rtype: str
+    :rtype: Expression
 
 
     We can create a moodle variable as follow:
 
     >>> from moodlesg.math import base
-    >>> a = base.GradeVar('a')
+    >>> a = base.grade_var('a')
 
     And we obtain:
 
     >>> print(a)
     [[a]]
 
-    .. seealso:: :class:`Expression`, :function:`AnswerVar`.
+    .. seealso:: :class:`Expression`, :func:`answer_var`.
     """
     return Expression('[[{}]]'.format(id_activity))
 
@@ -89,6 +88,6 @@ def answer_var(answer_variable):
     Implement a moodle variable specific for using in correct answer
     calculation.
 
-    .. seealso:: :class:`Expression`, :function:`GradeVar`.
+    .. seealso:: :class:`Expression`, :func:`grade_var`.
     """
     return Expression('{{ {} }}'.format(answer_variable))
