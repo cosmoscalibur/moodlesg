@@ -8,29 +8,39 @@ moodle mathematical expressions.
 from moodlesg.math.settings import decimal_sep, list_sep, math_type
 from math import ceil, floor
 
+
 def _add(expr1, expr2):
     return Expression('({0} + {1})'.format(str(expr1), str(expr2)))
+
 
 def _sub(expr1, expr2):
     return Expression('({0} - {1})'.format(str(expr1), str(expr2)))
 
+
 def _mul(expr1, expr2):
     return Expression('({0} * {1})'.format(str(expr1), str(expr2)))
+
 
 def _div(expr1, expr2):
     return Expression('({0}/{1})'.format(str(expr1), str(expr2)))
 
+
 def _mod(expr1, expr2):
-    return Expression('mod({0}{1}{2})'.format(str(expr1), list_sep, str(expr2)))
+    return Expression('mod({0}{1}{2})'.format(
+        str(expr1), list_sep, str(expr2)))
+
 
 def _pow(expr1, expr2):
     return Expression('({0} ^ {1})'.format(str(expr1), str(expr2)))
 
+
 def _bool(expr):
     return ceil(abs(expr) / (1 + abs(expr)))
 
+
 def _not(expr):
     return abs(expr - 1)
+
 
 class Expression():
     """
@@ -53,7 +63,8 @@ class Expression():
 
     # Math type methods
     def __round__(self, count):
-        return Expression('round({0}{1}{2})'.format(str(self), list_sep, str(count)))
+        return Expression('round({0}{1}{2})'.format(
+            str(self), list_sep, str(count)))
 
     def __ceil__(self):
         return Expression('ceil({0})'.format(str(self)))
@@ -91,10 +102,10 @@ class Expression():
         return _div(expression, self)
 
     def __floordiv__(self, expression):
-        return floor(self/expression)
+        return floor(self / expression)
 
     def __rfloordiv__(self, expression):
-        return floor(expression/self)
+        return floor(expression / self)
 
     def __mod__(self, expression):
         return _mod(self, expression)
@@ -185,4 +196,4 @@ def answer_var(answer_variable):
 
     .. seealso:: :class:`Expression`, :func:`grade_var`.
     """
-    return Expression('{{ {} }}'.format(answer_variable))
+    return Expression('{{{}}}'.format(answer_variable))
