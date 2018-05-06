@@ -33,13 +33,15 @@ def _not(expr):
     return abs(expr - 1)
 
 class Expression():
-    def __init__(self, expression):
-        """
-        Implement a generic mathematical expression in moodle format.
+    """
+    Implement a generic mathematical expression in moodle format.
 
-        :param expression: Math moodle expression.
-        :type expression: str
-        """
+    :param expression: Math moodle expression.
+    :type expression: str
+    """
+
+    def __init__(self, expression):
+
         self.root = expression
 
     # String type methods
