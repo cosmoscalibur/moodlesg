@@ -1,7 +1,10 @@
-moodlesg
-========
+Moodle String Generator package
+===============================
 
 .. toctree::
    :maxdepth: 4
 
-   moodlesg
+.. automodule:: math
+   :members:
+    :undoc-members:
+    :show-inheritance:

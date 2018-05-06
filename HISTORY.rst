@@ -2,6 +2,13 @@
 History
 =======
 
+0.2.0 (2018-05-06)
+------------------
+
+* Full implementation of moodle math expressions.
+* Added pi constant.
+* Some math functions common between grade and answer calculation.
+
 0.1.2 (2018-03-14)
 ------------------
 
