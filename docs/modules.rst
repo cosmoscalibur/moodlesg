@@ -36,4 +36,7 @@ Math functions subpackage
 Math constants subpackage
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autodata:: moodlesg.math.constants.common.pi
+.. automodule:: moodlesg.math.constants.common
+   :members:
+   :undoc-members:
+   :show-inheritance:

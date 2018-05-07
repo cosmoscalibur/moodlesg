@@ -37,16 +37,24 @@ Also, you can think in some automatic question generation that Moodle not suppor
 Features
 --------
 
-* [ ] String generation of moodle math formulas.
+n: null support
 
-  * [ ] `Grade calculations <https://docs.moodle.org/33/en/Grade_calculations#Calculation_functions>`_.
-  * [ ] `Calculated question <https://docs.moodle.org/33/en/Calculated_question_type#Available_functions>`_.
-* [ ] String generation of questions for text plain moodle editor (not XML nor HTML).
-* [ ] String manipulation of question bank.
+b: basic support
 
-  * [ ] Export of question strings to moodle supported `question import formats <https://docs.moodle.org/33/en/Import_questions>`_.
-  * [ ] Import of question strings from moodle `question export formats <https://docs.moodle.org/33/en/Export_questions>`_.
-  * [ ] Management `question bank <https://docs.moodle.org/33/en/Question_bank>`_ locally and generate from collections of question strings.
+p: partial support
+
+f: full support
+
+* [p] String generation of moodle math formulas.
+
+  * [p] `Grade calculations <https://docs.moodle.org/33/en/Grade_calculations#Calculation_functions>`_.
+  * [b] `Calculated question <https://docs.moodle.org/33/en/Calculated_question_type#Available_functions>`_.
+* [n] String generation of questions for text plain moodle editor (not XML nor HTML).
+* [n] String manipulation of question bank.
+
+  * [n] Export of question strings to moodle supported `question import formats <https://docs.moodle.org/33/en/Import_questions>`_.
+  * [n] Import of question strings from moodle `question export formats <https://docs.moodle.org/33/en/Export_questions>`_.
+  * [n] Management `question bank <https://docs.moodle.org/33/en/Question_bank>`_ locally and generate from collections of question strings.
 
 Credits
 -------

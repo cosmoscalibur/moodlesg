@@ -1,5 +1,5 @@
 Welcome to Moodle String Generator's documentation!
-======================================
+===================================================
 
 .. toctree::
    :maxdepth: 2
