@@ -37,7 +37,7 @@ setup(
     include_package_data=True,
     keywords='moodlesg education moodle',
     name='moodlesg',
-    packages=find_packages(include=['moodlesg']),
+    packages=find_packages(),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
