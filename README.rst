@@ -6,8 +6,8 @@ Moodle String Generator
 .. image:: https://img.shields.io/pypi/v/moodlesg.svg
         :target: https://pypi.python.org/pypi/moodlesg
 
-.. image:: https://img.shields.io/travis/cosmoscalibur/moodlesg.svg
-        :target: https://travis-ci.org/cosmoscalibur/moodlesg
+.. image:: https://api.travis-ci.com/cosmoscalibur/moodlesg.svg?branch=master
+        :target: https://travis-ci.com/cosmoscalibur/moodlesg
 
 .. image:: https://readthedocs.org/projects/moodlesg/badge/?version=latest
         :target: https://moodlesg.readthedocs.io/en/latest/?badge=latest
