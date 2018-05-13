@@ -2,6 +2,20 @@
 History
 =======
 
+0.3.0 (2018-05-13)
+------------------
+
+* Fix installation wheels: Removed wheels for python2.7.
+* Caps convention for constant: pi → PI.
+* Better documentation.
+* Full support of common functions between grade and answer calculations.
+
+0.2.2 (2018-05-11)
+------------------
+
+* Fix docstrings.
+* Added new math functions and docstrings (common and extended module).
+
 0.2.0 (2018-05-06)
 ------------------
 
