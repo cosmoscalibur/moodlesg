@@ -43,11 +43,25 @@ def _not(expr):
 
 
 class Expression():
-    """
-    Implement a generic mathematical expression in moodle format.
+    """Implement a generic mathematical expression in moodle format.
 
-    :param expression: Math moodle expression.
-    :type expression: str
+    Args:
+        expression (str): Math moodle expression.
+
+    Returns:
+        :obj:`Expression`: Moodle math object.
+
+    Examples:
+        >>> str(mm.Expression('a'))
+        a
+
+        >>> a = mm.Expression('a')
+        >>> b = mm.Expression('b')
+
+        >>> str(a + b)
+        (a + b)
+        >>> str(a + 1)
+        (a + 1)
     """
 
     def __init__(self, expression):
@@ -165,35 +179,49 @@ class Expression():
 
 
 def grade_var(id_activity):
-    """
-    Implement a moodle variable specific for using in grade calculation.
+    """Implement a moodle variable for using in grade calculation.
 
-    :param id_activity: Moodle ID of the activity.
-    :type id_activity: str
-    :return: Moodle ID ready for grade calculation.
-    :rtype: Expression
+    Args:
+        id_activity (str): Moodle ID of the activity.
 
+    Returns:
+        :obj:`Expression`: Moodle ID ready for grade calculation.
 
-    We can create a moodle variable as follow:
+    Examples:
+        We can create a moodle id activity for calculation as follow:
 
-    >>> from moodlesg.math import base
-    >>> a = base.grade_var('a')
+        >>> a = mm.grade_var('a')
+        >>> str(a)
+        [[a]]
+        >>> str(a + 1)
+        ([[a]] + 1)
 
-    And we obtain:
+    See Also:
+        :class:`Expression`
+        :func:`answer_var`
 
-    >>> print(a)
-    [[a]]
-
-    .. seealso:: :class:`Expression`, :func:`answer_var`.
     """
     return Expression('[[{}]]'.format(id_activity))
 
 
 def answer_var(answer_variable):
-    """
-    Implement a moodle variable specific for using in correct answer
-    calculation.
+    """Implement a moodle variable for using in correct answer calculation.
 
-    .. seealso:: :class:`Expression`, :func:`grade_var`.
+    Args:
+        answer_variable (str): Variable name string.
+
+    Returns:
+        :obj:`Expression`: Moodle variable ready for calculations.
+
+    Examples:
+        We can create a moodle answer variable for calculation as follow:
+
+        >>> a = mm.answer_var('a')
+        >>> str(a)
+        {a}
+
+    See Also:
+        :class:`Expression`
+        :func:`grade_var`.
     """
     return Expression('{{{}}}'.format(answer_variable))
