@@ -21,7 +21,7 @@ setup(
     author="Edward Villegas-Pulgarin",
     author_email='cosmoscalibur@gmail.com',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Education',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
@@ -29,6 +29,8 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Operating System :: OS Independent',
+        'Topic :: Education'
     ],
     description="Python package to generate common strings used in moodle for users (not admin level) and manage exported files from moodle and generate files for import.",
     install_requires=requirements,
