@@ -16,7 +16,8 @@ References
              Moodle 3.4 Docs.
 """
 
-from moodlesg.math.base import Expression, grade_var, answer_var
+from moodlesg.math.base import (Expression, grade_var, answer_var, moodle_var,
+                                mmParams)
 from moodlesg.math.constants import PI
 from moodlesg.math.functions.common import (max, min, average, sum, floor,
                                             ceil, round, abs, power, mod,

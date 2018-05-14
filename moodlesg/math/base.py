@@ -5,8 +5,43 @@ Module :code:`base` contains definitions required for building
 moodle mathematical expressions.
 """
 
-from moodlesg.math.settings import decimal_sep, list_sep, math_type
-from math import ceil, floor
+class Settings:
+    decimal_sep = '.'
+    list_sep = ';'
+    math_type = 'grade'
+
+    def __init__(self):
+        pass
+
+    def setup(self, **kwargs):
+        if kwargs['decimal_sep']:
+            self.decimal_sep = kwargs['decimal_sep']
+        if kwargs['list_sep']:
+            self.list_sep = kwargs['list_sep']
+        if kwargs['math_type']:
+            self.math_type = kwargs['math_type']
+
+    def period_comma(self):
+        self.decimal_sep = '.'
+        self.list_sep = ','
+
+    def period_semicolon(self):
+        self.decimal_sep = '.'
+        self.list_sep = ';'
+
+    def comma_semicolon(self):
+        self.decimal_sep = ','
+        self.list_sep = ';'
+
+    def grade(self):
+        self.math_type = 'grade'
+
+    def answer(self):
+        self.math_type = 'answer'
+
+
+mmParams = Settings()
+
 
 
 def _add(expr1, expr2):
@@ -27,7 +62,7 @@ def _div(expr1, expr2):
 
 def _mod(expr1, expr2):
     return Expression('mod({0}{1}{2})'.format(
-        str(expr1), list_sep, str(expr2)))
+        str(expr1), mmParams.list_sep, str(expr2)))
 
 
 def _pow(expr1, expr2):
@@ -35,7 +70,7 @@ def _pow(expr1, expr2):
 
 
 def _bool(expr):
-    return ceil(abs(expr) / (1 + abs(expr)))
+    return Expression.__ceil__(abs(expr) / (1 + abs(expr)))
 
 
 def _not(expr):
@@ -53,15 +88,15 @@ class Expression():
 
     Examples:
         >>> str(mm.Expression('a'))
-        a
+        'a'
 
         >>> a = mm.Expression('a')
         >>> b = mm.Expression('b')
 
         >>> str(a + b)
-        (a + b)
+        '(a + b)'
         >>> str(a + 1)
-        (a + 1)
+        '(a + 1)'
     """
 
     def __init__(self, expression):
@@ -78,7 +113,7 @@ class Expression():
     # Math type methods
     def __round__(self, count):
         return Expression('round({0}{1}{2})'.format(
-            str(self), list_sep, str(count)))
+            str(self), mmParams.list_sep, str(count)))
 
     def __ceil__(self):
         return Expression('ceil({0})'.format(str(self)))
@@ -87,7 +122,8 @@ class Expression():
         return Expression('floor({0})'.format(str(self)))
 
     def __trunc__(self):
-        return (self < 0) * ceil(self) + (self >= 0) * floor(self)
+        return (self < 0) * Expression.__ceil__(self) + (self >= 0) \
+                * Expression.__floor__(self)
 
     # Numeric type operations
 
@@ -116,10 +152,10 @@ class Expression():
         return _div(expression, self)
 
     def __floordiv__(self, expression):
-        return floor(self / expression)
+        return Expression.__floor__(self / expression)
 
     def __rfloordiv__(self, expression):
-        return floor(expression / self)
+        return Expression.__floor__(expression / self)
 
     def __mod__(self, expression):
         return _mod(self, expression)
@@ -192,9 +228,9 @@ def grade_var(id_activity):
 
         >>> a = mm.grade_var('a')
         >>> str(a)
-        [[a]]
+        '[[a]]'
         >>> str(a + 1)
-        ([[a]] + 1)
+        '([[a]] + 1)'
 
     See Also:
         :class:`Expression`
@@ -218,10 +254,17 @@ def answer_var(answer_variable):
 
         >>> a = mm.answer_var('a')
         >>> str(a)
-        {a}
+        '{a}'
 
     See Also:
         :class:`Expression`
         :func:`grade_var`.
     """
     return Expression('{{{}}}'.format(answer_variable))
+
+
+def moodle_var(name_variable):
+    if mmParams.math_type == 'grade':
+        return grade_var(name_variable)
+    else:
+        return answer_var(name_variable)

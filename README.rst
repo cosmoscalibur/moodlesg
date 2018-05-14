@@ -47,8 +47,8 @@ f: full support
 
 * [p] String generation of moodle math formulas.
 
-  * [p] `Grade calculations <https://docs.moodle.org/33/en/Grade_calculations#Calculation_functions>`_.
-  * [b] `Calculated question <https://docs.moodle.org/33/en/Calculated_question_type#Available_functions>`_.
+  * [f] `Grade calculations <https://docs.moodle.org/33/en/Grade_calculations#Calculation_functions>`_.
+  * [p] `Calculated question <https://docs.moodle.org/33/en/Calculated_question_type#Available_functions>`_.
 * [n] String generation of questions for text plain moodle editor (not XML nor HTML).
 * [n] String manipulation of question bank.
 

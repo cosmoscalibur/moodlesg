@@ -4,8 +4,7 @@ This module implement moodle math functions that are common between
 grade and answer calculation.
 """
 
-from moodlesg.math.base import Expression
-from moodlesg.math.settings import list_sep
+from moodlesg.math.base import Expression, mmParams
 
 
 def sum(expr1, *expr2):
@@ -14,10 +13,10 @@ def sum(expr1, *expr2):
     """
     expr2_el = len(expr2)
     if expr2_el > 0:
-        expr2_add = list_sep.join([str(expr) for expr in expr2])
-        expr = list_sep.join([str(expr1), expr2_add])
+        expr2_add = mmParams.list_sep.join([str(expr) for expr in expr2])
+        expr = mmParams.list_sep.join([str(expr1), expr2_add])
     else:
-        expr = list_sep.join([str(expr) for expr in expr1])
+        expr = mmParams.list_sep.join([str(expr) for expr in expr1])
     return Expression('sum({0})'.format(expr))
 
 
@@ -27,10 +26,10 @@ def average(expr1, *expr2):
     """
     expr2_el = len(expr2)
     if expr2_el > 0:
-        expr2_add = list_sep.join([str(expr) for expr in expr2])
-        expr = list_sep.join([str(expr1), expr2_add])
+        expr2_add = mmParams.list_sep.join([str(expr) for expr in expr2])
+        expr = mmParams.list_sep.join([str(expr1), expr2_add])
     else:
-        expr = list_sep.join([str(expr) for expr in expr1])
+        expr = mmParams.list_sep.join([str(expr) for expr in expr1])
     return Expression('average({0})'.format(expr))
 
 
@@ -40,10 +39,10 @@ def max(expr1, *expr2):
     """
     expr2_el = len(expr2)
     if expr2_el > 0:
-        expr2_add = list_sep.join([str(expr) for expr in expr2])
-        expr = list_sep.join([str(expr1), expr2_add])
+        expr2_add = mmParams.list_sep.join([str(expr) for expr in expr2])
+        expr = mmParams.list_sep.join([str(expr1), expr2_add])
     else:
-        expr = list_sep.join([str(expr) for expr in expr1])
+        expr = mmParams.list_sep.join([str(expr) for expr in expr1])
     return Expression('max({0})'.format(expr))
 
 
@@ -53,10 +52,10 @@ def min(expr1, *expr2):
     """
     expr2_el = len(expr2)
     if expr2_el > 0:
-        expr2_add = list_sep.join([str(expr) for expr in expr2])
-        expr = list_sep.join([str(expr1), expr2_add])
+        expr2_add = mmParams.list_sep.join([str(expr) for expr in expr2])
+        expr = mmParams.list_sep.join([str(expr1), expr2_add])
     else:
-        expr = list_sep.join([str(expr) for expr in expr1])
+        expr = mmParams.list_sep.join([str(expr) for expr in expr1])
     return Expression('min({0})'.format(expr))
 
 
@@ -86,7 +85,7 @@ def power(expr1, expr2):
     Raises a number to the power of another.
     """
     return Expression('power({0}{1}{2})'.format(str(expr1),
-                       list_sep, str(expr2)))
+                       mmParams.list_sep, str(expr2)))
 
 
 def mod(expr1, expr2):
