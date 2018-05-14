@@ -20,8 +20,9 @@ from moodlesg.math.base import (Expression, grade_var, answer_var, moodle_var,
                                 mmParams)
 from moodlesg.math.constants import PI
 from moodlesg.math.functions.common import (max, min, average, sum, floor,
-                                            ceil, round, abs, power, mod,
+                                            ceil, round, abs,
                                             sin, cos, tan, asin, acos, atan,
                                             sinh, cosh, tanh, asinh, acosh,
                                             atanh, sqrt, exp)
+from moodlesg.math.functions.compatibility import (log, log10, mod, pow)
 from moodlesg.math.functions.extended import trunc, bool

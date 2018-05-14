@@ -80,21 +80,6 @@ def round(expr, count):
     return Expression.__round__(expr, count)
 
 
-def power(expr1, expr2):
-    """
-    Raises a number to the power of another.
-    """
-    return Expression('power({0}{1}{2})'.format(str(expr1),
-                       mmParams.list_sep, str(expr2)))
-
-
-def mod(expr1, expr2):
-    """
-    Calculates the remainder of a division.
-    """
-    return Expression.__mod__(expr1, expr2)
-
-
 def abs(expr):
     """
     Absolute value.

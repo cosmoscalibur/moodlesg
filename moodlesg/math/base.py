@@ -6,6 +6,11 @@ moodle mathematical expressions.
 """
 
 class Settings:
+    """
+    Representation of moodle math parameters.
+
+    If you need change parameters, access to them throught :data:`mmParams`.
+    """
     decimal_sep = '.'
     list_sep = ';'
     math_type = 'grade'
@@ -41,6 +46,10 @@ class Settings:
 
 
 mmParams = Settings()
+"""
+(:obj:`Settings`): Object that represents moodle math parameters and manages
+them.
+"""
 
 
 
@@ -61,8 +70,12 @@ def _div(expr1, expr2):
 
 
 def _mod(expr1, expr2):
-    return Expression('mod({0}{1}{2})'.format(
-        str(expr1), mmParams.list_sep, str(expr2)))
+    if mmParams.math_type == 'grade':
+        fun_string = "mod"
+    else:
+        fun_string = "fmod"
+    return Expression("{0}({1}{2}{3})".format(fun_string, str(expr1), \
+                        mmParams.list_sep, str(expr2)))
 
 
 def _pow(expr1, expr2):
@@ -100,7 +113,6 @@ class Expression():
     """
 
     def __init__(self, expression):
-
         self.root = expression
 
     # String type methods
@@ -264,6 +276,29 @@ def answer_var(answer_variable):
 
 
 def moodle_var(name_variable):
+    """
+    Create variable type according to :data:`mmParams.math_type`.
+
+    Args:
+        name_variable (str): Identifier of the moodle variable.
+
+    Returns:
+        :obj:`Expression`: Moodle variable of correct type.
+
+    Examples:
+        >>> mm.mmParams.grade()
+        >>> mm.moodle_var('a')
+        Expression('[[a]]')
+
+        >>> mm.mmParams.answer()
+        >>> mm.moodle_var('a')
+        Expression('{a}')
+
+    See_Also:
+        :class:`Expression`
+        :func:`grade_var`
+        :func:`answer_var`
+    """
     if mmParams.math_type == 'grade':
         return grade_var(name_variable)
     else:
