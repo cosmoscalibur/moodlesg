@@ -4,4 +4,4 @@
 
 __author__ = """Edward Villegas-Pulgarin"""
 __email__ = 'cosmoscalibur@gmail.com'
-__version__ = '0.3.0'
+__version__ = '0.3.1'
