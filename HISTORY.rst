@@ -2,6 +2,14 @@
 History
 =======
 
+0.3.1 (2018-05-17)
+------------------
+
+* Define changes according to mmParams.
+* Remove sdist distribution from travis deployment.
+* Update classifiers.
+* Support moodle math setting: decimal and list separator, math type.
+
 0.3.0 (2018-05-13)
 ------------------
 
