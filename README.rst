@@ -1,3 +1,5 @@
+Because I am not teacher since long time and I am not considering in future, this project is unmainteined.
+
 =======================
 Moodle String Generator
 =======================
